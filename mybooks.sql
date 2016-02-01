@@ -10,7 +10,8 @@ CREATE TABLE books
 
 CREATE TABLE authors
 (   author_id int unsigned not null auto_increment primary key,
-    name char(50) not null,
+    last_name char(50) not null,
+    first_name char(50),
     date_of_birth date,
     date_passed date,
     author_rate_id tinyint unsigned
