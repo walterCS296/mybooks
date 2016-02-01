@@ -18,7 +18,7 @@ CREATE TABLE authors
 
 CREATE TABLE author_rate
 (   author_rate_id tinyint unsigned not null primary key,
-    author_rate_description text,
+    author_rate_description text
 );
 
 CREATE TABLE book_covers
@@ -28,7 +28,7 @@ CREATE TABLE book_covers
 
 CREATE TABLE book_rate
 (   book_rate_id tinyint unsigned not null primary key,
-    book_rate_description text,
+    book_rate_description text
 );
 
 CREATE TABLE classifications
@@ -37,5 +37,5 @@ CREATE TABLE classifications
     class_description text
 );
 
--- CREATE INDEX book_title ON books (title);
--- CREATE INDEX author_name ON authors (name);
+CREATE INDEX book_title ON books (title);
+CREATE INDEX author_name ON authors (name);
