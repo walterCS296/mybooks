@@ -11,9 +11,9 @@
     
     <nav>
       <ul>
-        <li class='activeLink'><a href="mybooksHome.php" >Authors</a>
-        </li><li>Books
-        </li><li class='activeLink'><a href="AddEdit.html">Add</a>
+        <li><a href="mybooksHome.php" >Authors</a>
+        </li><li class="current"><a href="#">Books</a>
+        </li><li><a href="AddEdit.html">Add</a>
         </li>
       </ul>
     </nav>

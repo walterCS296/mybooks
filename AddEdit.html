@@ -11,9 +11,9 @@
     
     <nav>
       <ul>
-        <li class='activeLink'><a href="mybooksHome.php" >Authors</a>
-        </li><li class='activeLink'><a href="mybooksBooks.php">Books</a>
-        </li>Add
+        <li><a href="mybooksHome.php" >Authors</a>
+        </li><li><a href="mybooksBooks.php">Books</a>
+        </li><li class="current"><a href="#">Add</a>
         </li>
       </ul>
     </nav>
@@ -22,15 +22,22 @@
         <table border="0">
           <tr>
             <td>ISBN</td>
-             <td><input type="text" name="isbn" maxlength="13" size="13"></td>
+              <td><table><tr>
+               <td class="isbncheck"><input type="text" name="isbn" maxlength="13" size="13" required></td>
+               <td class="isbncheck"><input type="button" name="fetch" value="check"</td>
+              </tr></table></td>
           </tr>
           <tr>
             <td>Title</td>
-            <td> <input type="text" name="title" maxlength="60" size="60"></td>
+            <td> <input type="text" name="title" maxlength="60" size="30"></td>
           </tr>
           <tr>
-            <td>Author</td>
-            <td> <input type="text" name="author" maxlength="40" size="40"></td>
+            <td>Author Last Name</td>
+            <td> <input type="text" name="author" maxlength="30" size="30"></td>
+          </tr>
+          <tr>
+            <td>Author First Name</td>
+            <td> <input type="text" name="author" maxlength="30" size="30"></td>
           </tr>
           <tr>
             <td>Classification</td>
@@ -40,6 +47,7 @@
                 <option value = "b">Fantasy</option>
                 <option value = "c">Fiction</option>
                 <option value = "d">Non-Fiction</option>
+                <option value = "e">Textbook</option>
                 <option value = "x" selected></option>
               </select>
             </td>
@@ -49,15 +57,16 @@
             <td><input type="number" name="rating" min="0" max="4" value="null"></td>
           </tr>
           <tr>
-            <td>Original Year of Publication</td>
+            <td>Year of First Publication</td>
             <td><input type="number" name="orig_pub_date" min="1888" max="2088" value="null"></td>
           </tr>
           <tr>
-            <td>Year of Publication of My Edition</td>
+            <td>Year of My Edition</td>
             <td><input type="number" name="curr_ed_date" min="1888" max="2088" value="null"></td>
           </tr>
           <tr>
-            <td colspan="2"><input type="submit" value="Add/Edit Book"></td>
+            <td></td>
+            <td><input type="submit" value="Add/Edit Book"></td>
           </tr>
         </table>
       </form>

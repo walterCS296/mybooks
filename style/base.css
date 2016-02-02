@@ -3,7 +3,7 @@
 html {
     /*font-size: 16px;*/
     background: #404040;
-    padding-top: 40px;
+    padding-top: 15px;
 }
 
 body {
@@ -14,6 +14,10 @@ body {
     border: solid 3px;
     padding: 15px;
     min-height: 666px;
+}
+
+h1 {
+    margin: 7px 0px 14px;
 }
 
 th, td {
@@ -43,14 +47,14 @@ nav li {
 	text-align: center;
 }
 
-li a, li a:visited {
+nav li a, nav li a:visited {
     display: block;
     color: white;
     text-decoration: none;
     transition: .3s color;
 }
 
-.activeLink:hover {
+nav li:hover {
     background-color: #71badb;
     transition: .3s background-color;
 }
@@ -60,8 +64,12 @@ nav li a:hover {
     transition: .3s color;
 }
 
+.current:hover, .current a:hover {
+    color: white;
+    background-color: #0098dc;
+}
+
 .author a, .author a:visited {
-    display: block;
     color: black;
     text-decoration: none;
     transition: .3s color;
@@ -73,7 +81,6 @@ nav li a:hover {
 }
 
 .book a, .book a:visited {
-    display: block;
     color: black;
     text-decoration: none;
     transition: .3s color;
@@ -82,4 +89,9 @@ nav li a:hover {
 .book a:hover {
     color: #0098dc;
     transition: .3s color;
+}
+
+.isbncheck {
+    padding: 0px 14px 0px 0px;
+
 }
