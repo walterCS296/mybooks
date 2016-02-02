@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Books Home</title>
+    <title>My Books</title>
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/base.css">
   </head>
@@ -11,8 +11,8 @@
     
     <nav>
       <ul>
-        <li>Authors
-        </li><li class='activeLink'><a href="mybooksBooks.php">Books</a>
+        <li class='activeLink'><a href="mybooksHome.php" >Authors</a>
+        </li><li>Books
         </li><li class='activeLink'><a href="AddEdit.html">Add</a>
         </li>
       </ul>
@@ -23,23 +23,28 @@
         @ $db = new mysqli('localhost', 'mybookuser', 'student', 'mybooks');
       
         if (mysqli_connect_errno()) {
-           echo 'Error: Could not connect to database.  Please try again later.';
+           echo '<h3>Error: Could not connect to database.  Please try again later.</h3>';
            exit;
         }
-      
-        $query = "select * from authors order by last_name";
+
+        $query = "select books.isbn, books.title, authors.last_name, authors.first_name
+                  from books, authors
+                  where books.author_id = authors.author_id
+                  order by title";
+
         $result = $db->query($query);
       
         $num_results = $result->num_rows;
       
-        echo "<p><strong>Authors:</strong> ".$num_results." currently listed.</p>";
+        echo "<p><strong>Books:</strong> ".$num_results." currently listed.</p>";
 
         for ($i=0; $i <$num_results; $i++) {
           $row = $result->fetch_object();
-          echo "<p class='author'>";
-          echo "<a href='thisAuthor.php?authorid=".$row->author_id."'>";
-          echo htmlspecialchars(stripslashes($row->first_name)." ".stripslashes($row->last_name));
+          echo "<p class='book'>";
+          echo "<a href='thisBook.php?isbn=".$row->isbn."'>";
+          echo htmlspecialchars(stripslashes($row->title));
           echo "</a>";
+          echo " by ".htmlspecialchars(stripslashes($row->first_name))." ".htmlspecialchars(stripslashes($row->last_name));
           echo "</p>";
         }
       

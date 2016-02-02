@@ -1,7 +1,10 @@
+<?php
+  $authorid = $_GET['authorid'];
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Books Home</title>
+    <title>My Books</title>
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/base.css">
   </head>
@@ -11,7 +14,7 @@
     
     <nav>
       <ul>
-        <li>Authors
+        <li class='activeLink'><a href="mybooksHome.php" >Authors</a>
         </li><li class='activeLink'><a href="mybooksBooks.php">Books</a>
         </li><li class='activeLink'><a href="AddEdit.html">Add</a>
         </li>
@@ -19,7 +22,7 @@
     </nav>
     <div>
       <?php
-      
+
         @ $db = new mysqli('localhost', 'mybookuser', 'student', 'mybooks');
       
         if (mysqli_connect_errno()) {
@@ -27,18 +30,29 @@
            exit;
         }
       
-        $query = "select * from authors order by last_name";
+        $query = "select last_name, first_name from authors where author_id = $authorid";
+
         $result = $db->query($query);
-      
+        $row = $result->fetch_object();
+        
+        echo "<p><strong>".$row->first_name." ".$row->last_name.": </strong> ";
+        
+        $query = "select isbn, title from books where author_id = $authorid";
+        $result = $db->query($query);
         $num_results = $result->num_rows;
-      
-        echo "<p><strong>Authors:</strong> ".$num_results." currently listed.</p>";
+        
+        $s = "s";
+        if($num_results == 1) {
+          $s = "";
+        }
+        
+        echo $num_results." book$s currently listed.</p>";
 
         for ($i=0; $i <$num_results; $i++) {
           $row = $result->fetch_object();
-          echo "<p class='author'>";
-          echo "<a href='thisAuthor.php?authorid=".$row->author_id."'>";
-          echo htmlspecialchars(stripslashes($row->first_name)." ".stripslashes($row->last_name));
+          echo "<p class='book'>";
+          echo "<a href='thisBook.php?isbn=".$row->isbn."'>";
+          echo htmlspecialchars(stripslashes($row->title));
           echo "</a>";
           echo "</p>";
         }

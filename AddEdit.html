@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add/Edit Books</title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/base.css">
+  </head>
+  <body>
+  
+    <h1>My Books</h1>
+    
+    <nav>
+      <ul>
+        <li class='activeLink'><a href="mybooksHome.php" >Authors</a>
+        </li><li class='activeLink'><a href="mybooksBooks.php">Books</a>
+        </li>Add
+        </li>
+      </ul>
+    </nav>
+    <div>
+      <form action="insert_book.php" method="post">
+        <table border="0">
+          <tr>
+            <td>ISBN</td>
+             <td><input type="text" name="isbn" maxlength="13" size="13"></td>
+          </tr>
+          <tr>
+            <td>Title</td>
+            <td> <input type="text" name="title" maxlength="60" size="60"></td>
+          </tr>
+          <tr>
+            <td>Author</td>
+            <td> <input type="text" name="author" maxlength="40" size="40"></td>
+          </tr>
+          <tr>
+            <td>Classification</td>
+            <td>
+              <select name="class">
+                <option value = "a">Science Fiction</option>
+                <option value = "b">Fantasy</option>
+                <option value = "c">Fiction</option>
+                <option value = "d">Non-Fiction</option>
+                <option value = "x" selected></option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Rating</td>
+            <td><input type="number" name="rating" min="0" max="4" value="null"></td>
+          </tr>
+          <tr>
+            <td>Original Year of Publication</td>
+            <td><input type="number" name="orig_pub_date" min="1888" max="2088" value="null"></td>
+          </tr>
+          <tr>
+            <td>Year of Publication of My Edition</td>
+            <td><input type="number" name="curr_ed_date" min="1888" max="2088" value="null"></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="submit" value="Add/Edit Book"></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
