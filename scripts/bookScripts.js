@@ -12,9 +12,21 @@ window.addEventListener("load", function() {
     fetchButton.addEventListener("click", function() {
         var url;
         isbn = isbnInput.value;
-        url = "isbnResults.php?isbn=" + isbn;
-        xhr.open("GET", url, true);
-        xhr.send();
+        isbn = isbn.trim().toUpperCase();
+        isbn = isbn.replace(/[^0-9,X]/g, "");
+        if (isbn.length < 10) {
+            while (isbn.length < 10) {
+                isbn = "0" + isbn;
+            }
+        } 
+        if (isbn.length != 10 && isbn.length != 13) {
+            bookMessage.innerHTML = "<p>An ISBN should have 10 or 13 digits. Please try again.</p>";
+        } else {
+            url = "isbnResults.php?isbn=" + isbn;
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+        isbnInput.value = isbn;
     });
     
     xhr.addEventListener("load", function() {

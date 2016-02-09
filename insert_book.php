@@ -36,19 +36,20 @@
          exit;
       }
       
-      echo "<p>isbn: $isbn<br />"
-          ."title: $title<br />"
-          ."authorLast: $authorLast<br />"
-          ."authorFirst: $authorFirst<br />"
-          ."class: $class<br />"
-          ."rating: $rating<br />"
-          ."orig_pub_date: $orig_pub_date<br />"
-          ."curr_ed_date: $curr_ed_date<br />"
-          ."</p>";
+      // echo "<p>isbn: $isbn<br />"
+      //     ."title: $title<br />"
+      //     ."authorLast: $authorLast<br />"
+      //     ."authorFirst: $authorFirst<br />"
+      //     ."class: $class<br />"
+      //     ."rating: $rating<br />"
+      //     ."orig_pub_date: $orig_pub_date<br />"
+      //     ."curr_ed_date: $curr_ed_date<br />"
+      //     ."</p>";
       
-      $isbn = preg_replace('/[^0-9,X]+/i', '', $isbn);
+      $isbn = strtoupper($isbn);
+      $isbn = preg_replace('/[^0-9,X]+/', '', $isbn);
       $isbnLength = strlen($isbn);
-      echo "<p>Length of isbn: $isbnLength</p>";
+      // echo "<p>Length of isbn: $isbnLength</p>";
       if ($isbnLength < 10) {
         $isbn = str_pad($isbn, 10, "0", STR_PAD_LEFT);
       } elseif ($isbnLength != 10 && $isbnLength != 13) {

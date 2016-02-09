@@ -15,4 +15,4 @@ ISBNs:
 9780134077703
 9780425034347
 
-ISBNdb: http://isbndb.com/api/v2/json/LH108WKZ/book/9780553382952
+ISBNdb: https://isbndb.com/api/v2/json/LH108WKZ/book/9780553382952

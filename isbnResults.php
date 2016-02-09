@@ -14,7 +14,7 @@
   
     $query = "select * from books where isbn = $isbn";
     $bookresult = $db->query($query);
-    if (!is_object($bookresults)) {
+    if (!is_object($bookresult)) {
        $error = "<p>No results found for ISBN ".$isbn
                   .". Complete entry to add book.</p>";
        echo '{"error": "'.$error.'"}';
