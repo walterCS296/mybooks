@@ -1,0 +1,18 @@
+new books:
+
+0425039102 The Word for World is Forest Ursula K. Le Guin 1972 1976
+
+055302907X The Wind's Twelve Quarters 1975 1976
+
+0441669565 Planet of Exile 1966 1976
+
+0553110810 Very Far Away from Anywhere Else 1976 1978
+
+0441107044 City of Illusions 1967
+
+ISBNs:
+9780672329166
+9780134077703
+9780425034347
+
+ISBNdb: http://isbndb.com/api/v2/json/LH108WKZ/book/9780553382952
